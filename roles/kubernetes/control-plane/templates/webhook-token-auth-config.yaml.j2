@@ -6,6 +6,8 @@ clusters:
     insecure-skip-tls-verify: {{ kube_webhook_token_auth_url_skip_tls_verify }}
 {% if kube_webhook_token_auth_ca_data is defined %}
     certificate-authority-data: {{ kube_webhook_token_auth_ca_data }}
+{% elif kube_webhook_token_auth_ca is defined %}
+    certificate-authority-data: {{ kube_webhook_autorization_ca }}
 {% endif %}
 
 # users refers to the API server's webhook configuration.
